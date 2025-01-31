@@ -8,29 +8,51 @@
         // Таблица редиректов
         const redirects = {
             "streamer-life-simulator": "magnet:?xt=urn:btih:2F5BF036F89D848277AE83DF9EBD128AD77D19E5&dn=Streamer.Life.Simulator.2.v0.142.rar&tr=wss%3a%2f%2fwstracker.online&tr=http%3a%2f%2ftrax.corbina.net%3a6969%2fannounce",
-            // Добавьте другие игры здесь
+            // Добавьте другие игры сюда по аналогии
         };
-
-        // Проверяем, откуда пользователь
-        const referrer = document.referrer.toLowerCase();
-        if (!referrer.includes("discord")) {
-            // Если переход не из Discord
-            document.body.innerHTML = "<h1>⛔ Доступ запрещен!</h1><p>Перейти можно только из Discord.</p>";
-            throw new Error("Access denied: not from Discord.");
-        }
 
         // Получаем параметр "id" из URL
         const urlParams = new URLSearchParams(window.location.search);
         const gameId = urlParams.get('id');
 
         if (gameId && redirects[gameId]) {
-            // Перенаправляем на magnet-ссылку
-            window.location.href = redirects[gameId];
+            // Если нашли редирект для этой игры
+            document.body.innerHTML = `
+                <h1>Скачать игру: ${gameId.replace("-", " ").toUpperCase()}</h1>
+                <p>Нажмите на кнопку ниже, чтобы скачать игру:</p>
+                <a href="${redirects[gameId]}" class="download-button">Скачать</a>
+            `;
         } else {
-            // Если ссылка не найдена
+            // Если игра не найдена
             document.body.innerHTML = "<h1>Игра не найдена</h1>";
         }
     </script>
+
+    <style>
+        .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .download-button:hover {
+            background-color: #45a049;
+        }
+
+        h1 {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
     <p>Пожалуйста, подождите...</p>
