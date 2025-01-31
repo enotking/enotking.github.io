@@ -3,31 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <script>
-        // Таблица редиректов
-        const redirects = {
-            "streamer-life-simulator": "magnet:?xt=urn:btih:2F5BF036F89D848277AE83DF9EBD128AD77D19E5&dn=Streamer.Life.Simulator.2.v0.142.rar&tr=wss%3a%2f%2fwstracker.online&tr=http%3a%2f%2ftrax.corbina.net%3a6969%2fannounce",
-            // Добавьте другие игры сюда по аналогии
-        };
-
-        // Получаем параметр "id" из URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const gameId = urlParams.get('id');
-
-        if (gameId && redirects[gameId]) {
-            // Если нашли редирект для этой игры
-            document.body.innerHTML = `
-                <h1>Скачать игру: ${gameId.replace("-", " ").toUpperCase()}</h1>
-                <p>Нажмите на кнопку ниже, чтобы скачать игру:</p>
-                <a href="${redirects[gameId]}" class="download-button">Скачать</a>
-            `;
-        } else {
-            // Если игра не найдена
-            document.body.innerHTML = "<h1>Игра не найдена</h1>";
-        }
-    </script>
-
+    <title>Скачать игру</title>
     <style>
         .download-button {
             display: inline-block;
@@ -37,24 +13,26 @@
             text-decoration: none;
             border-radius: 5px;
             font-size: 18px;
+            margin-top: 20px;
         }
 
         .download-button:hover {
             background-color: #45a049;
         }
-
-        h1 {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        p {
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
     </style>
+    <script>
+        // Функция для обфускации ссылки
+        function downloadGame() {
+            var magnetLink = "magnet:?xt=urn:btih:2F5BF036F89D848277AE83DF9EBD128AD77D19E5&dn=Streamer.Life.Simulator.2.v0.142.rar&tr=wss%3a%2f%2fwstracker.online&tr=http%3a%2f%2ftrax.corbina.net%3a6969%2fannounce";
+            window.location.href = magnetLink;
+        }
+    </script>
 </head>
 <body>
-    <p>Пожалуйста, подождите...</p>
+    <h1>Скачать игру: Streamer Life Simulator 2</h1>
+    <p>Нажмите на кнопку ниже, чтобы скачать игру:</p>
+
+    <!-- Кнопка для скачивания через JavaScript -->
+    <button class="download-button" onclick="downloadGame()">Скачать</button>
 </body>
 </html>
