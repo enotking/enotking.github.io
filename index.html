@@ -11,6 +11,14 @@
             // Добавьте другие игры здесь
         };
 
+        // Проверяем, откуда пользователь
+        const referrer = document.referrer.toLowerCase();
+        if (!referrer.includes("discord")) {
+            // Если переход не из Discord
+            document.body.innerHTML = "<h1>⛔ Доступ запрещен!</h1><p>Перейти можно только из Discord.</p>";
+            throw new Error("Access denied: not from Discord.");
+        }
+
         // Получаем параметр "id" из URL
         const urlParams = new URLSearchParams(window.location.search);
         const gameId = urlParams.get('id');
@@ -25,6 +33,6 @@
     </script>
 </head>
 <body>
-    <p>Пожалуйста, подождите, test</p>
+    <p>Пожалуйста, подождите...</p>
 </body>
 </html>
