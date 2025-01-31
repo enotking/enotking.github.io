@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Скачать игру</title>
     <style>
+        /* Устанавливаем фоновое изображение для всей страницы */
+        body {
+            background-image: url('https://raw.githubusercontent.com/yourusername/yourrepo/main/images/index.gif');
+            background-size: cover; /* Фон будет растягиваться, чтобы покрыть весь экран */
+            background-position: center center; /* Центрирование фона */
+            margin: 0; /* Убираем отступы */
+            padding: 0; /* Убираем отступы */
+            color: white; /* Белый цвет текста для контраста */
+            font-family: Arial, sans-serif; /* Шрифт */
+        }
+
+        .content {
+            text-align: center;
+            padding: 50px;
+            background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для контента */
+            border-radius: 10px; /* Скругление углов */
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         .download-button {
             display: inline-block;
             padding: 10px 20px;
@@ -20,19 +40,16 @@
             background-color: #45a049;
         }
     </style>
-    <script>
-        // Функция для обфускации ссылки
-        function downloadGame() {
-            var magnetLink = "magnet:?xt=urn:btih:2F5BF036F89D848277AE83DF9EBD128AD77D19E5&dn=Streamer.Life.Simulator.2.v0.142.rar&tr=wss%3a%2f%2fwstracker.online&tr=http%3a%2f%2ftrax.corbina.net%3a6969%2fannounce";
-            window.location.href = magnetLink;
-        }
-    </script>
 </head>
 <body>
-    <h1>Скачать игру: Streamer Life Simulator 2</h1>
-    <p>Нажмите на кнопку ниже, чтобы скачать игру:</p>
 
-    <!-- Кнопка для скачивания через JavaScript -->
-    <button class="download-button" onclick="downloadGame()">Скачать</button>
+    <div class="content">
+        <h1>Скачать игру: Streamer Life Simulator 2</h1>
+        <p>Нажмите на кнопку ниже, чтобы скачать игру:</p>
+
+        <!-- Кнопка для перехода на магнитную ссылку -->
+        <a href="magnet:?xt=urn:btih:2F5BF036F89D848277AE83DF9EBD128AD77D19E5&dn=Streamer.Life.Simulator.2.v0.142.rar&tr=wss%3a%2f%2fwstracker.online&tr=http%3a%2f%2ftrax.corbina.net%3a6969%2fannounce" class="download-button">Скачать</a>
+    </div>
+
 </body>
 </html>
