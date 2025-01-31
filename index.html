@@ -12,6 +12,10 @@
             background-position: center center; /* Центрирование фона */
             margin: 0; /* Убираем отступы */
             padding: 0; /* Убираем отступы */
+            height: 100vh; /* Задаем высоту 100% от высоты экрана */
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: white; /* Белый цвет текста для контраста */
             font-family: Arial, sans-serif; /* Шрифт */
         }
@@ -22,7 +26,7 @@
             background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для контента */
             border-radius: 10px; /* Скругление углов */
             max-width: 600px;
-            margin: 0 auto;
+            width: 100%;
         }
 
         .download-button {
@@ -39,6 +43,18 @@
         .download-button:hover {
             background-color: #45a049;
         }
+
+        .install-link {
+            display: block;
+            margin-top: 20px;
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .install-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -49,6 +65,11 @@
 
         <!-- Кнопка для перехода на магнитную ссылку -->
         <a href="magnet:?xt=urn:btih:2F5BF036F89D848277AE83DF9EBD128AD77D19E5&dn=Streamer.Life.Simulator.2.v0.142.rar&tr=wss%3a%2f%2fwstracker.online&tr=http%3a%2f%2ftrax.corbina.net%3a6969%2fannounce" class="download-button">Скачать</a>
+
+        <p>Если у вас нет µTorrent Classic, вы можете его скачать, нажав кнопку ниже:</p>
+
+        <!-- Ссылка на установку µTorrent -->
+        <a href="https://www.utorrent.com/intl/ru/desktop/compare/" class="install-link" target="_blank">Установить µTorrent</a>
     </div>
 
 </body>
