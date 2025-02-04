@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Госуслуги Clone</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+  <header class="bg-blue-600 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <a href="https://www.gosuslugi.ru" class="text-xl font-semibold flex items-center">
+        <img src="https://d-russia.ru/wp-content/uploads/2015/10/gos.jpg" 
+             alt="Госуслуги" class="w-6 h-6 rounded-full inline-block mr-2" />
+        Госуслуги
+      </a>
+      <nav>
+        <ul class="hidden sm:flex space-x-4">
+          <li><a href="#" class="hover:underline">Услуги</a></li>
+          <li><a href="#" class="hover:underline">Документы</a></li>
+          <li><a href="#" class="hover:underline">Заявления</a></li>
+          <li><a href="#" class="hover:underline">Платежи</a></li>
+          <li><a href="#" class="hover:underline">Помощь</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto py-8 px-4">
+    <h1 class="text-xl sm:text-2xl font-semibold mb-4 text-center sm:text-left">
+      Паспорт РФ
+    </h1>
+    <div class="shadow-lg bg-white p-4 rounded-lg">
+      <div class="grid gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <p class="text-gray-600">ФИО</p>
+            <p class="font-medium">Филипов Иван Иванович</p>
+          </div>
+          <div>
+            <p class="text-gray-600">Дата рождения</p>
+            <p class="font-medium">26.07.2004</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <p class="text-gray-600">Пол</p>
+            <p class="font-medium">Мужской</p>
+          </div>
+          <div>
+            <p class="text-gray-600">Гражданство</p>
+            <p class="font-medium">РОССИЯ</p>
+          </div>
+        </div>
+        <div>
+          <p class="text-gray-600">Место рождения</p>
+          <p class="font-medium">г. Красноярск</p>
+        </div>
+        <div>
+          <p class="text-gray-600">Серия и номер паспорта</p>
+          <p class="font-medium">0415 894117</p>
+        </div>
+        <div>
+          <p class="text-gray-600">Выдан</p>
+          <p class="font-medium">ГУ МВД России по Красноярскому краю</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <p class="text-gray-600">Дата выдачи</p>
+            <p class="font-medium">05.12.2024</p>
+          </div>
+          <div>
+            <p class="text-gray-600">Код подразделения</p>
+            <p class="font-medium">240-007</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <label class="block text-gray-600 mb-2">Загрузить файл:</label>
+        <input type="file" class="border border-gray-300 rounded p-2 w-full" />
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-blue-600 text-white py-4 text-center text-sm">
+    © 2025 Госуслуги. Все права защищены.
+  </footer>
+
+</body>
+</html>
