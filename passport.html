@@ -5,6 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Госуслуги 2025</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const qrContainer = document.getElementById("qr-code");
+      const showQRButton = document.getElementById("show-qr");
+      let qrInterval;
+
+      showQRButton.addEventListener("click", () => {
+        if (qrInterval) {
+          clearInterval(qrInterval);
+        }
+
+        const generateQR = () => {
+          qrContainer.innerHTML = ""; // Clear previous QR code
+          const randomData = `https://example.com/${Math.random().toString(36).substr(2, 10)}`;
+          QRCode.toCanvas(qrContainer, randomData, { width: 128 }, (error) => {
+            if (error) console.error(error);
+          });
+        };
+
+        generateQR();
+        qrInterval = setInterval(generateQR, 3000); // Update QR code every 3 seconds
+      });
+    });
+  </script>
 </head>
 <body class="bg-gray-100">
 
@@ -77,8 +102,10 @@
         </div>
       </div>
       <div class="mt-4">
-        <label class="block text-gray-600 mb-2">Загрузить файл:</label>
-        <input type="file" class="border border-gray-300 rounded p-2 w-full" />
+        <button id="show-qr" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Показать QR
+        </button>
+        <div id="qr-code" class="mt-4"></div>
       </div>
     </div>
   </main>
