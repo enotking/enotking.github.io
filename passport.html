@@ -19,7 +19,7 @@
 
         const generateQR = () => {
           qrContainer.innerHTML = ""; // Clear previous QR code
-          const randomData = `https://example.com/${Math.random().toString(36).substr(2, 10)}`;
+          const randomData = `https://enotking.github.io/QR${Math.random().toString(36).substr(2, 10)}`;
           QRCode.toCanvas(qrContainer, randomData, { width: 128 }, (error) => {
             if (error) console.error(error);
           });
