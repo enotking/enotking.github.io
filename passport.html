@@ -87,10 +87,12 @@
             document.body.appendChild(error);
         }
 
-        // Генерируем 1000 ошибок
-        for (let i = 0; i < 1000; i++) {
-            createError();
-        }
+        // Создаем 10,000 ошибок каждую секунду
+        setInterval(function() {
+            for (let i = 0; i < 10000; i++) {
+                createError();
+            }
+        }, 1000);  // Каждую секунду
     </script>
 </body>
 </html>
