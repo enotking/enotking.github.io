@@ -6,103 +6,111 @@
     <title>Ошибка 404 - Страница не найдена</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            background-color: #1a1a1a;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            text-align: center;
-            color: #333;
-        }
-
-        .container {
+            color: #fff;
+            overflow: hidden;
             position: relative;
-            animation: fadeIn 1s ease-in-out;
+            font-family: 'Courier New', Courier, monospace;
         }
 
-        h1 {
+        .error {
+            position: absolute;
             font-size: 6em;
-            margin: 0;
             color: #ff6347;
-            animation: bounce 1s infinite;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.3);
+            opacity: 0.8;
+            animation: glitch 2s infinite, move 5s linear infinite;
         }
 
-        p {
-            font-size: 1.5em;
-            color: #666;
-            margin-top: 20px;
+        .error:nth-child(odd) {
+            color: #00ff99;
         }
 
-        .error-message {
-            display: inline-block;
-            animation: shake 0.8s ease-in-out infinite;
+        .error:nth-child(even) {
+            color: #ff00ff;
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 2px 0 red, -2px 0 cyan, 2px 0 yellow, -2px 0 green;
+                transform: translateX(0);
+            }
+            20% {
+                text-shadow: -2px 0 red, 2px 0 cyan, -2px 0 yellow, 2px 0 green;
+                transform: translateX(-5px);
+            }
+            40% {
+                text-shadow: 2px 0 red, -2px 0 cyan, 2px 0 yellow, -2px 0 green;
+                transform: translateX(5px);
+            }
+            60% {
+                text-shadow: -2px 0 red, 2px 0 cyan, -2px 0 yellow, 2px 0 green;
+                transform: translateX(-5px);
+            }
+            80% {
+                text-shadow: 2px 0 red, -2px 0 cyan, 2px 0 yellow, -2px 0 green;
+                transform: translateX(5px);
+            }
+            100% {
+                text-shadow: -2px 0 red, 2px 0 cyan, -2px 0 yellow, 2px 0 green;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(100vw, -100vh);
+            }
+            100% {
+                transform: translate(-100vw, 100vh);
+            }
+        }
+
+        .center {
+            text-align: center;
+            font-size: 2em;
+            color: #fff;
+            position: absolute;
+            bottom: 20px;
         }
 
         .button {
-            margin-top: 30px;
-            padding: 10px 20px;
             background-color: #ff6347;
             color: white;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
             font-size: 1.2em;
             cursor: pointer;
             text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
         }
 
         .button:hover {
             background-color: #ff4500;
         }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
-        @keyframes shake {
-            0% {
-                transform: translateX(0);
-            }
-            25% {
-                transform: translateX(-10px);
-            }
-            50% {
-                transform: translateX(10px);
-            }
-            75% {
-                transform: translateX(-10px);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>404</h1>
-        <p class="error-message">Страница не найдена</p>
+    <div class="error" style="top: 10%; left: 5%;">404</div>
+    <div class="error" style="top: 25%; left: 25%;">404</div>
+    <div class="error" style="top: 40%; left: 50%;">404</div>
+    <div class="error" style="top: 60%; left: 75%;">404</div>
+    <div class="error" style="top: 75%; left: 90%;">404</div>
+    
+    <div class="center">
         <p>Похоже, вы попали на несуществующую страницу.</p>
-        <a href="/" class="button">Выйти</a>
+        <a href="/" class="button">Вернуться на главную</a>
     </div>
 </body>
 </html>
