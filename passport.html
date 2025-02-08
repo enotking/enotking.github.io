@@ -6,34 +6,21 @@
     <title>Ошибка 404 - Страница не найдена</title>
     <style>
         body {
-            background-color: #1a1a1a;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #fff;
             overflow: hidden;
-            position: relative;
+            background-color: #1a1a1a;
             font-family: 'Courier New', Courier, monospace;
+            color: #fff;
         }
 
         .error {
             position: absolute;
-            font-size: 6em;
+            font-size: 3em;
             color: #ff6347;
             text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.3);
             opacity: 0.8;
             animation: glitch 2s infinite, move 5s linear infinite;
-        }
-
-        .error:nth-child(odd) {
-            color: #00ff99;
-        }
-
-        .error:nth-child(even) {
-            color: #ff00ff;
         }
 
         @keyframes glitch {
@@ -74,43 +61,36 @@
                 transform: translate(-100vw, 100vh);
             }
         }
-
-        .center {
-            text-align: center;
-            font-size: 2em;
-            color: #fff;
-            position: absolute;
-            bottom: 20px;
-        }
-
-        .button {
-            background-color: #ff6347;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        .button:hover {
-            background-color: #ff4500;
-        }
     </style>
 </head>
 <body>
-    <div class="error" style="top: 10%; left: 5%;">404</div>
-    <div class="error" style="top: 25%; left: 25%;">404</div>
-    <div class="error" style="top: 40%; left: 50%;">404</div>
-    <div class="error" style="top: 60%; left: 75%;">404</div>
-    <div class="error" style="top: 75%; left: 90%;">404</div>
-    
-    <div class="center">
-        <p>Похоже, вы попали на несуществующую страницу.</p>
-        <a href="/" class="button">Вернуться на главную</a>
-    </div>
+    <script>
+        // Функция для генерации случайных позиций и анимаций ошибок
+        function createError() {
+            const error = document.createElement('div');
+            error.classList.add('error');
+            error.innerText = '404';
+
+            // Случайные позиции на экране
+            const randomX = Math.random() * window.innerWidth;
+            const randomY = Math.random() * window.innerHeight;
+
+            // Случайный тайминг для анимации
+            const animationDelay = Math.random() * 5 + 's';
+
+            // Случайные параметры для эффекта глича
+            error.style.left = randomX + 'px';
+            error.style.top = randomY + 'px';
+            error.style.animationDelay = animationDelay;
+
+            // Добавляем элемент на страницу
+            document.body.appendChild(error);
+        }
+
+        // Генерируем 1000 ошибок
+        for (let i = 0; i < 1000; i++) {
+            createError();
+        }
+    </script>
 </body>
 </html>
