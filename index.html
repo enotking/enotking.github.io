@@ -36,20 +36,25 @@
         const canvas = document.getElementById('canvas');
         const size = 50; // 50x50 grid
 
-        for (let i = 0; i < size * size; i++) {
-            const pixel = document.createElement('div');
-            pixel.classList.add('pixel');
-            pixel.addEventListener('click', function () {
-                pixel.style.backgroundColor = pixel.style.backgroundColor === 'red' ? 'white' : 'red';
-                sendPixelData(i, pixel.style.backgroundColor);
-            });
-            canvas.appendChild(pixel);
+        // Загружаем сохраненные данные из localStorage
+        function loadCanvas() {
+            for (let i = 0; i < size * size; i++) {
+                const pixel = document.createElement('div');
+                pixel.classList.add('pixel');
+                pixel.style.backgroundColor = localStorage.getItem(`pixel-${i}`) || 'white';
+
+                // Обработчик клика для изменения цвета пикселя
+                pixel.addEventListener('click', function () {
+                    const newColor = pixel.style.backgroundColor === 'red' ? 'white' : 'red';
+                    pixel.style.backgroundColor = newColor;
+                    localStorage.setItem(`pixel-${i}`, newColor); // Сохраняем изменения
+                });
+
+                canvas.appendChild(pixel);
+            }
         }
 
-        function sendPixelData(index, color) {
-            // Отправка данных на сервер или в Garry's Mod (через Lua)
-            fetch(`https://example.com/updatePixel?index=${index}&color=${color}`);
-        }
+        loadCanvas();
     </script>
 </body>
 </html>
